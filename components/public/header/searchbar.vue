@@ -10,15 +10,10 @@
                     <button class="el-button el-button--primary"><i class="el-icon-search"></i></button>
                     <dl class="hotPlace" v-if="isHotPlace">
                         <dt>热门搜索</dt>
-                        <dd>火锅</dd> 
-                        <dd>火锅</dd> 
-                        <dd>火锅</dd> 
-                        <dd>火锅</dd> 
+                        <dd v-for="(item,index) in hotPlace" :key="index">{{item}}</dd>
                     </dl>
                     <dl class="searchList" v-if="isSearchList">
-                        <dd>火锅</dd>
-                        <dd>火锅</dd>
-                        <dd>火锅</dd>
+                        <dd v-for="(item,index) in searchList" :key="index">{{item}}</dd>
                     </dl>
                 </div>
                 <p class="suggset">
@@ -60,7 +55,9 @@ export default {
     data() {
         return {
             search: '',
-            isFocus: false
+            isFocus: false,
+            hotPlace: ['烤鱼','庆丰包子'],
+            searchList: ['火锅','湘菜','东北菜']
         }
     },
     computed: {
